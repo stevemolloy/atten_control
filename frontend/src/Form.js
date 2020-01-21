@@ -20,7 +20,6 @@ const Form = () => {
       'params': {'val': atten},
       'id': '1'
     }));
-    console.log(atten);
     event.preventDefault();
   }
 
@@ -29,7 +28,12 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Attenuation (dB):
-          <input type="text" value={atten} onChange={handleChange} />
+          <select value={atten} onChange={handleChange}>
+            {[...Array(64)].map((e,i) => {
+              if (i===0) return <option key='empty' value="" disabled>---</option>;
+              return <option value={i/2} key={i/2}>{i/2}</option>;
+            })}
+          </select>
         </label>
         <input type="submit" value="Submit" />
       </form>
