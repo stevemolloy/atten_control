@@ -8,6 +8,8 @@ jsonrpc = JSONRPC(app, '/api', enable_web_browsable_api=True)
 @jsonrpc.method('App.set_atten')
 def set(val):
     setval = set_atten(float(val))
+    if not setval:
+        return f"Error.  Attenuation not set."
     return f"Attenuation set to {setval}"
 
 @jsonrpc.method('App.index')
