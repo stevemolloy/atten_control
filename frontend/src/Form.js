@@ -35,7 +35,7 @@ const Form = () => {
             })}
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Set" />
       </form>
     </div>
   );
