@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          BAM-test attenuation control
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Form/>
+    </div>
+  );
+}
+
+function Form() {
+  const [atten, setAtten] = useState(32.0);
+
+  return (
+    <div>
+      <p>You set the attenuation to {atten}dB.</p>
+      <button onClick={() => setAtten(atten-0.5)}>
+        Click?
+      </button>
     </div>
   );
 }
