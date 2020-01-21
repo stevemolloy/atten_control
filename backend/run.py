@@ -1,11 +1,13 @@
 from flask import Flask
 from flask_jsonrpc import JSONRPC
 from binary_leds import set_atten
+from crossdomain import crossdomain
 
 app = Flask(__name__)
 jsonrpc = JSONRPC(app, '/api', enable_web_browsable_api=True)
 
 @jsonrpc.method('App.set_atten')
+@crossdomain(origin='*')
 def set(val):
     setval = set_atten(float(val))
     if not setval:
