@@ -14,10 +14,6 @@ def set(val):
         return f"Error.  Attenuation not set."
     return f"Attenuation set to {setval}"
 
-@jsonrpc.method('App.index')
-def index(a):
-    return "index function: " + a
-
 if __name__=="__main__":
     app.run(host='0.0.0.0', debug=True)
 
